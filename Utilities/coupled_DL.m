@@ -67,8 +67,7 @@ for t = 1 : nIter
         Alphas = reshape(Alphas_sgl,par.K,[]);                        % size [128 655360]
         Alphap = reshape(Alphap_sgl,par.K,[]);
  
-        rec_path = sprintf('%stempDict_SER_challenge2569.2571_9slice_random_NoM_Lambda1_%s_Lambda3_%s_MU%s_RHO%s_nIter%s.mat','./Results/Challenge/',num2str(lambda1),num2str(lambda3),num2str(sqrtmu),num2str(rho),num2str(t)); 
-        save(rec_path,'Ds' ,'Dp','Alphas', 'Alphap','Ws', 'Wp' ,'par', 'param', 'fs','fp','P1p','P2p','P3','P4p','fm', 'time', 't')
+
         
         
 %     else     
@@ -245,7 +244,8 @@ dictSize = par.K;
     time=toc;
     fprintf('%d-th: Energy: %d Time: %d\n',t,fm,time);
 
-
+        rec_path = sprintf('%stempDict_SER_challenge2569.2571_9slice_random_NoM_Lambda1_%s_Lambda3_%s_MU%s_RHO%s_nIter%s.mat','./Results/Challenge/',num2str(lambda1),num2str(lambda3),num2str(sqrtmu),num2str(rho),num2str(t)); 
+        save(rec_path,'Ds' ,'Dp','Alphas', 'Alphap','Ws', 'Wp' ,'par', 'param', 'fs','fp','P1p','P2p','P3','P4p','fm', 'time', 't')
     
     if (abs(f_prev - f) / f < epsilon) 
         break;
